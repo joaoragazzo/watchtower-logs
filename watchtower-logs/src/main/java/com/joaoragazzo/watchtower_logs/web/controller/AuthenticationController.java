@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.joaoragazzo.watchtower_logs.security.JwtService;
+import com.joaoragazzo.watchtower_logs.security.jwt.JwtService;
 import com.joaoragazzo.watchtower_logs.service.UserService;
 import com.joaoragazzo.watchtower_logs.web.dto.forms.auth.LoginUserDTO;
 import com.joaoragazzo.watchtower_logs.web.dto.forms.auth.RegisterUserDTO;
@@ -53,7 +53,8 @@ public class AuthenticationController {
         Authentication authentication = new UsernamePasswordAuthenticationToken(loginUserDTO.username(), loginUserDTO.password());
         Authentication authenticated = authenticationManager.authenticate(authentication);
         String token = jwtService.generateToken((UserDetails) authenticated.getPrincipal());
-        Cookie cookie = new Cookie("jwt", token);
+        
+        Cookie cookie = new Cookie("session", token);
         cookie.setSecure(true);
         cookie.setHttpOnly(true);
         cookie.setMaxAge(3600);

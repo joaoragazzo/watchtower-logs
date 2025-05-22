@@ -1,4 +1,4 @@
-package com.joaoragazzo.watchtower_logs.security;
+package com.joaoragazzo.watchtower_logs.security.services;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -21,7 +21,7 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return user.getRoles().stream()
-            .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
+            .map(role -> new SimpleGrantedAuthority(role.getAuthority()))
             .collect(Collectors.toList());
     }
 

@@ -5,5 +5,5 @@ import jakarta.validation.constraints.NotBlank;
 
 @Schema(description = "Error message returned by the API")
 public record ErrorMessageDTO(
-        @NotBlank String error) {
-}
+    @NotBlank String error
+) {}

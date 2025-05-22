@@ -1,11 +1,11 @@
-package com.joaoragazzo.watchtower_logs.security;
+package com.joaoragazzo.watchtower_logs.security.services;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.joaoragazzo.watchtower_logs.errors.AuthenticationErrorCodes;
+import com.joaoragazzo.watchtower_logs.errors.exceptions.auth.UsernameNotFoundException;
 import com.joaoragazzo.watchtower_logs.models.User;
 import com.joaoragazzo.watchtower_logs.repository.UserRepository;
 

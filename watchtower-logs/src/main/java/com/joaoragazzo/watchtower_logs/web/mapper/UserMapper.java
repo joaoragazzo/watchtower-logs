@@ -1,9 +1,12 @@
 package com.joaoragazzo.watchtower_logs.web.mapper;
 
+import java.util.List;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.joaoragazzo.watchtower_logs.models.User;
+import com.joaoragazzo.watchtower_logs.security.Role;
 import com.joaoragazzo.watchtower_logs.web.dto.forms.auth.RegisterUserDTO;
 
 import lombok.AllArgsConstructor;
@@ -23,6 +26,7 @@ public class UserMapper {
             .email(registerUserDTO.email())
             .password(passwordEncoder.encode(registerUserDTO.password()))
             .birthDate(registerUserDTO.birthDate())
+            .roles(List.of(Role.USER))
             .build();
         return newUser;
     }

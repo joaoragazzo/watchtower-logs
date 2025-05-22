@@ -1,4 +1,4 @@
-package com.joaoragazzo.watchtower_logs.security;
+package com.joaoragazzo.watchtower_logs.security.jwt;
 
 import java.nio.charset.StandardCharsets;
 import java.security.Key;

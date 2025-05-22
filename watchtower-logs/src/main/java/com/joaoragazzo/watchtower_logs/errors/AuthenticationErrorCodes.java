@@ -11,4 +11,8 @@ public class AuthenticationErrorCodes {
     public static final String BLANK_EMAIL = "blank_email";
     public static final String BLANK_BIRTH_DATE = "blank_birth_date";
     public static final String USERNAME_NOT_FOUND = "username_not_found";
+    public static final String INVALID_JWT_SIGNATURE = "invalid_jwt_signature";
+    public static final String FORBIDDEN_ACCESS = "forbidden_access";
+    public static final String UNAUTHORIZED_ACCESS = "unauthorized_access";
+    public static final String UNAUTHENTICATED_ACCESS = "unauthenticated_access";
 }

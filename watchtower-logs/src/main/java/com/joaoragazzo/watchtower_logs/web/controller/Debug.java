@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.joaoragazzo.watchtower_logs.security.CustomUserDetails;
+import com.joaoragazzo.watchtower_logs.security.services.CustomUserDetails;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/debug")
 public class Debug {
     
     @GetMapping

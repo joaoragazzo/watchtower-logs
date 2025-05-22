@@ -17,7 +17,7 @@ import io.swagger.v3.oas.annotations.security.SecuritySchemes;
         version = "1.0", 
         description = "Project for Springboot, JWT, logging and security studies", 
         contact = @Contact(name = "João Ragazzo")),  
-    security = {@SecurityRequirement(name = "Cookie")}
+        security = {@SecurityRequirement(name = "Cookie")}
     )
 @SecuritySchemes({
         @SecurityScheme(name = "Cookie", type = SecuritySchemeType.APIKEY, in = SecuritySchemeIn.HEADER, paramName = "Cookie")

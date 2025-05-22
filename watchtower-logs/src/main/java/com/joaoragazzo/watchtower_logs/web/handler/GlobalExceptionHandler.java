@@ -1,12 +1,13 @@
 package com.joaoragazzo.watchtower_logs.web.handler;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.joaoragazzo.watchtower_logs.errors.exceptions.base.ConflictException;
+import com.joaoragazzo.watchtower_logs.errors.exceptions.base.NotFoundException;
+import com.joaoragazzo.watchtower_logs.errors.exceptions.base.UnauthorizedException;
 import com.joaoragazzo.watchtower_logs.web.dto.messages.ErrorMessageDTO;
 
 @RestControllerAdvice
@@ -28,10 +29,18 @@ public class GlobalExceptionHandler {
                 .body(new ErrorMessageDTO(message));
     }
 
-    @ExceptionHandler(UsernameNotFoundException.class) 
-    public ResponseEntity<ErrorMessageDTO> usernameNotFound(UsernameNotFoundException exception) {
+    @ExceptionHandler(NotFoundException.class) 
+    public ResponseEntity<ErrorMessageDTO> usernameNotFound(NotFoundException exception) {
         return ResponseEntity
                 .status(404)
                 .body(new ErrorMessageDTO(exception.getMessage()));
     }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<ErrorMessageDTO> unauthorizedAccess(UnauthorizedException exception) {
+        return ResponseEntity
+                .status(401)
+                .body(new ErrorMessageDTO(exception.getMessage()));
+    }
+
 }
