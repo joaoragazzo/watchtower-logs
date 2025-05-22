@@ -18,7 +18,7 @@ public class Debug {
     @SecurityRequirement(name = "Cookie")
     public ResponseEntity<String> testing() {
         CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return ResponseEntity.ok("Hello, " + userDetails.getUser().getFirstName() + "!");
+        return ResponseEntity.ok("Hello, " + userDetails.getUser().getFirstName() + "! Your roles are " + userDetails.getAuthorities().toString());
     }
 
 }
